@@ -1,0 +1,38 @@
+Arrow functions are a new way to write anonymous function expression. 
+The advantages of Arrow Functions above Normal Functions are:
+- Time saving when writing a function.
+- Concise body sintax.
+- Implicit return.
+- Shorter version of a normal function.
+- No binding of 'this'.
+
+Disadvantages:
+- Harder to debug.
+- No self-referencing
+    If your function needs to have a self-reference at any point (e.g. recursion, event handlers that needs
+    to unbind), it will not work.
+
+
+//Normal Function
+function printMyName(name) {
+    console.log(name)
+}
+
+//Arrow Functions
+const printMyName = (name) => {
+    console.log(name)
+}
+
+or
+
+const printMyName = name => {
+    console.log(name)
+}
+
+or 
+
+const multiplyByTwo = number => return number*2
+
+
+printMyName('MyName')
+multiplyByTwo(10)
