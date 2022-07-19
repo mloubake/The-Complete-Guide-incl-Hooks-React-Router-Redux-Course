@@ -1,0 +1,49 @@
+Spread and Rest operators uses only one OPERATOR, the " ... ". It's called Spread and rest depends where
+we use it.
+
+- Spread: Used to split array elements OR object properties.
+
+const newArray = [...oldArray, 1, 2]
+const newObject = {...oldObject, newProp: 5}
+
+
+- Rest: Used to merge a list of functions arguments into an array
+
+function sortArgs(...args) {
+    return args.sort()
+}
+
+
+
+- Example using Spread Operator:
+
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4] //Result: [1, 2, 3, 4]
+
+If we don't use the ... operator we will have an array inside an array.
+const newNumbers = [numbers, 4] //Result: [[1, 2, 3], 4]
+
+
+With objects:
+
+const person = {
+    name: 'Max'
+}
+
+const newPerson = {    //Result: [object Object] {
+    ...person,                      age: 28,
+    age: 28                         name: 'Max'
+}                                }
+
+
+
+- Example using Rest Operator:
+
+const filter = (...args) => {
+    return args.filter(element => element === 1);
+}
+
+console.log(filter(1, 2, 3)); //Result: [1]
+
+* Keep in mind that ... operator merges all the arguments into an array. 
+And the === checks for type and value equality.
