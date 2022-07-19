@@ -1,0 +1,49 @@
+- Primitive Type: String, number, boolean. Whenever you reassign or store a variable in another variable 
+it will copy the value.
+
+const number = 1;
+const num2 = number;
+
+console.log(num2); //Result: 1
+
+
+- Reference Types: Objects and Arrays. When you create a object or array it is stored in memory and when 
+you copy it to another variable, instead to copy the value, what is copied is the pointer to that slot of
+memory. 
+
+const person = {
+    name: 'Max'
+}
+
+const secondPerson = person
+
+console.log(secondPerson) //Result: [object Object] {
+                                        name: "Max'
+                                    }
+
+Now if we change person name, this will happen, the value of person will change and consequently, secondPer-
+son.
+
+person.name = "Manu"
+
+console.log(secondPerson) //Result: [object Object] {
+                                        name: "Manu'
+                                    }
+
+
+If we want to create a real copy, we can use the SPREAD to change the "person" values, keeping the 
+value of "secondPerson".
+
+const person = {
+    name: 'Max'
+}
+
+const secondPerson = {
+    ...person
+}
+
+person.name = "Manu"
+
+console.log(secondPerson) //Result: [object Object] {
+                                        name: "Max'
+                                    }
