@@ -1,0 +1,4 @@
+About the Expense Tracker.
+
+This web application can show the expenses by year, month and day. It can add and filter expenses
+by selecting a year, and with nice animations, automatically updates the interface.
