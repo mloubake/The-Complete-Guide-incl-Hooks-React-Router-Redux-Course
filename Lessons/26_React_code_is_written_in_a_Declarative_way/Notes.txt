@@ -1,0 +1,18 @@
+React is all about components.
+
+- How is a component built?
+In React, a component is created by combining HTML, CSS and Javascript, and all together
+creates a user interface. Just only HTML and Javascript is necessary, the CSS is not the focus of
+React, but can be used to make the UI beautiful.
+
+- React and Components.
+In summary, React is all about components and about building these components together. React 
+allows us to create these re-usable and reactive components.
+
+React uses something which is called a Declarative Approach for building these components. It 
+basically means that with React, you will not tell React that a certaing HTML element should be
+created and inserted in a specific place on the user interface as in vanilla javascript. With 
+React you define the desired target state(s) and let React figure out the actual Javascript DOM
+instruction.
+
+
