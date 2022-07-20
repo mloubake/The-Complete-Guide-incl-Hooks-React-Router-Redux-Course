@@ -1,0 +1,12 @@
+Important concepts: Reusability and Separation of Concerns
+
+- Reusability
+This concept is about to reuse ("repeat") parts of a code to minify the entire code (project, 
+lines of code), making you that don't repeat yourself with the same things. 
+Example: Make a button component that, wherever you need a button, that button can be used again
+and again, without to making a new button, economizing time.
+
+- Separaion of Concerns
+Also known as SOC, this concept is about to remove all concern of a single file and splitting
+them to smaller parts, making them to do only one clear task, one concern. This makes these
+small pieces of code easy to manage and maintain.
