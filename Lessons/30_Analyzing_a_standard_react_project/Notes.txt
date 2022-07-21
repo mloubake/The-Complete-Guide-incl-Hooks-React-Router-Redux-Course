@@ -1,0 +1,19 @@
+We can see in the analysis that a react project has some important concepts that makes a react 
+unique, or at least, different. The SPA, JSX, libraries.
+
+- SPA
+Single Page Application a.k.a. SPA, is a concept that utilize only one HTML page to build the 
+entire project. This one page needs to be rendered only and reload a piece of the DOM when it 
+changes, making the page much faster than a regular page. Is worth mention that all the code 
+(everything) is rendered inside this single HTML page.
+
+- JSX
+JSX is a concept that bind together HTML and JS. This type of file allow us to use HTML inside 
+Javascript, allowing us to make a dynamically page, when constructing components and pages that
+can change whenever we wanted.
+
+- Libraries 
+Although this is not a concept, Libraries are used to help us construct a better page, they 
+can be native (installed when we create a project) or third-party libraries. 
+They are stored in a folder called node_moducles (giant heavy folder) and loaded in a file 
+called package.json, that holds all dependecies and other useful configurations. 
