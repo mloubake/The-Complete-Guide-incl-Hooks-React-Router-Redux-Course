@@ -1,0 +1,42 @@
+In this lesson we will turn the ExpenseItem Component more dynamically, but not full dynamically,
+creating new variables to use them inside the JSX, using the curly braces ('{ }'). 
+We gonna also use the Date class to make generate a date with arguments, this new date is better 
+to use than a HARDCODE date, of course it will not be the better solution, but it is a progress.
+
+This new date can be created and used like this:
+
+function ExpenseItem() {
+    //Creates a new date
+    const date = new Date(2021, 6, 21)
+
+    return(
+        <div>
+            //ISOString is some of few methods to generate a date
+            {date.toISOString()} //Result: 2022-07-21T03:00:00.000Z
+        </div>
+    )
+}
+
+The new date is a little better to read than July 21th 2022, but most importantly, its better
+to use, remembering. This is not the best way, but it's something.
+
+Observations:
+- Hardcode is the name for a code that is written by someone and can't be changed dinamically.
+To change, the person that wrote, need to change everytime, and this is a nonsense in a modern
+app. Modern apps need to have the capability to change it's data any time. 
+
+Disclaimer: Hardcode it's not well seen (generally), but it can be used sometimes, depending on
+the context.
+
+- Some Date.now methods:
+* toISOString() //Result: 2022-07-21T03:00:00.000Z
+* toDateString() //Result: Thu Jul 21 2022
+* toLocaleDateString() //Result: 21/07/2022
+* Methods "getSomething
+    ** getDate() //Result: 21
+    ** getDay() //Result: 4
+    ** getFullYear() //Result: 2022
+    ** getHours() //Result: 0
+
+Check the other methods in: 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
