@@ -1,0 +1,26 @@
+- Important rule of using a JSX elements.
+JSX elements cannot be declared without a parent/root element without wrapping them 
+in the RETURN of the element function, this is rule must be followed in every snippet.
+
+Example:
+
+//Wrong Snippet                                         //Correct Snippet
+function ExpenseItem() {                                function ExpenseItem() {    
+    return(                                                 return(
+        <div>Date</div>                                         <div> //root/parent div
+        <div>                                                       <div>Date</div>
+            <h2>Title</h2>                                          <div>
+            <div>Amount</div>                                           <h2>Title</h2>
+        </div>;)                                                        <div>Amount</div>
+}                                                                   <div>
+                                                                <div>
+export default ExpenseItem;                             }
+
+                                                        export default ExpenseItem;
+
+We can see that in the second example, a div root is wrapping the main part of this code, this
+need to be declared because the component returns only one component, this is alos good,
+because keeps the code readable and maintainable. It's good to mention that we don't need to wrap 
+the element only with div, we can use any other html element, we can also use 
+Fragments (<></> (don't create a element in the DOM)), and elements that of any CSS libraries, 
+like: <Container/> from Styled-Components library, and much more.
