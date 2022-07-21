@@ -1,0 +1,11 @@
+Complementing the previous lesson, JSX allows us to write components (code) in a declarative way, 
+or in a not imperative way. Imperative is like coding giving clear instruction, becoming
+very cumbersome. Like this:
+
+const paragraph = document.createElement('paragraph');
+paragraph.textContent = 'This is also visible';
+document.getElementById('root').append(paragraph);
+
+This is the way we do with regular javascript. But now, with declarative way, we can set the 
+place and state and React will do all the magic behind the scene.
+
