@@ -1,0 +1,3 @@
+We will create our first custom component. It's considered a good and best practice to not create
+our component in App.js file, because projects have dozen and dozen of hundred components/files 
+that will be used across the entire project, so it's good to separate them in new files. 
