@@ -1,0 +1,67 @@
+To utilize a component with dinamically data, we need to import this component in a 
+parent component (or page) and pass data via PROPS. When receiving these props in the component
+(called attributes), we set them in the JSX to be displayed.
+
+This pieces of code can show us:
+
+//App Component (parent component)
+import ExpenseItem from "./ExpenseItem"
+
+function App() {
+    //Mocked data
+    const expenses = [
+        {
+            id: "elem1", 
+            title: "Toilet Paper", 
+            amount: 94.12, 
+            date: new Date(2020, 7, 14)
+        },
+        {
+            id: "elem2", 
+            title: "New TV", 
+            amount: 294.67, 
+            date: new Date(2021, 2, 28)
+        },
+        {
+            id: "elem3", 
+            title: "Pizza", 
+            amount: 112.72, 
+            date: new Date(2020, 7, 14)
+        },
+    ];
+
+    return(
+    <div>
+        //Imported Components
+        <ExpenseItem 
+            id={expenses[0].id} 
+            title={expenses[0].title} 
+            amount={expenses[0].amount} 
+            date={expenses[0].date} 
+        />
+        <ExpenseItem 
+            id={expenses[1].id} 
+            title={expenses[1].title} 
+            amount={expenses[1].amount} 
+            date={expenses[1].date} 
+        />
+        <ExpenseItem 
+            id={expenses[2].id} 
+            title={expenses[2].title} 
+            amount={expenses[2].amount} 
+            date={expenses[2].date} 
+        />
+    <div>
+    )
+}
+
+//ExpenseItem Component (Child Component)
+function ExpenseItem(props) {
+    return(
+        <div>
+            <div>Date: {props.date}</div>
+            <div>Title: {props.title}</div>
+            <div>Amount: {props.amount}</div>
+        </div>
+    )
+}
