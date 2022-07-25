@@ -15,7 +15,7 @@ let mockedData = [
   },
   {
     id: "element2",
-    title: "House Bills",
+    title: "House's Bills",
     quantity: 1,
     amount: 543.58,
     date: new Date(2022, 4, 9),
