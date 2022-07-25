@@ -1,0 +1,12 @@
+Date format can be customized to display the data in diferent ways. The first param, is in which
+language the date will be displayed; the second para is the custom format.
+
+
+//This way the date will be shown in a numeric format
+ const day = date.toLocaleString("pt-BR", { day: "2-digit" }); 
+
+//This way the data will be shown as a string, in a long or short format  
+const month = date.toLocaleString("pt-BR", { month: "short | long" });
+
+//This way we can got only the year
+const year = date.getFullYear();
