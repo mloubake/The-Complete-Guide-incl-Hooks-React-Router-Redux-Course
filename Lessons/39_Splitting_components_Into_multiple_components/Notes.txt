@@ -1,0 +1,4 @@
+In this lesson we gonna separate the date part in a new component, splitting the Expense Item.
+However, it's necessary to comment that, not always, this approach is good. We could separate
+this part in a Util Folder, where we can use the same logic after in other part of the project.
+It's always good to considerate these options.
