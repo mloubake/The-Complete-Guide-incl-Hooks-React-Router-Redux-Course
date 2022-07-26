@@ -1,0 +1,6 @@
+These lessons are about organizing the files in folders for each components; Resources and the 
+snapshots of intructor's project in Github.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+https://github.com/academind/react-complete-guide-code/tree/03-react-basics-working-with-components
