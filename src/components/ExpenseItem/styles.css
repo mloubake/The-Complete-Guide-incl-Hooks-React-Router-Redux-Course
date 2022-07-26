@@ -1,31 +1,35 @@
 .expense-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   padding: 0.5rem;
   margin: 1rem 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   background-color: #4b4b4b;
 }
 
 .expense-item__description {
+  width: 100%;
+
   display: flex;
-  flex-direction: column;
+  flex: 1;
   gap: 1rem;
+  flex-direction: column;
   align-items: center;
   flex-flow: column-reverse;
   justify-content: space-around;
-  flex: 1;
-  width: 100%;
 }
 
 .expense-item h2 {
-  color: #3a3a3a;
-  font-size: 1rem;
+  margin: 0 1em;
+
   flex: 1;
-  margin: 0 1rem;
+
+  font-size: 1rem;
   color: white;
 }
 
@@ -44,15 +48,15 @@
 }
 
 .expense-item__total {
-  align-self: flex-end;
+  margin-right: 1rem;
+  padding: 0.5rem;
+
   font-size: 1rem;
   font-weight: bold;
   color: white;
   background-color: #40005d;
   border: 1px solid white;
-  padding: 0.5rem;
   border-radius: 12px;
-  margin-right: 1rem;
 }
 
 @media (min-width: 580px) {

@@ -3,7 +3,7 @@ import React from "react";
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
 import mockedData from "../../data/mockedData";
 
-import "./ExpenseList.css";
+import "./styles.css";
 
 function ExpenseList() {
   return (
