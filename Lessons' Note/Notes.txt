@@ -1,0 +1,14 @@
+# Listening to Events and Event Handlers
+To call a function inside the our components, we can use the EVENT HANDLER (onClick, onChange 
+and many others) to achiev this. 
+Event Handlers are properties that allow us to trigger functions. To do this, we need to pass a 
+function to these properties, and we do this by callings directly (inside the property) or indire-
+try (by "pointing" to the function).
+
+<button onClick={function} /> 
+                OR 
+<button o onChange={() =>{function()}} />
+
+It's good to note that, if we call this way: <button onClick={function()} />, the function will
+trigger when the component be mounted. 
+
