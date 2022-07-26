@@ -1,0 +1,8 @@
+This lesson calls out attention to the libs that we import in package.json, the "react" and 
+"react-dom". The react-dom lib is used in the App.js to mount our tree of components in the
+DOM, but the react lib it's not used. It's not used because early in the React Framework, the
+developers needed to to use this lib to create the element in the DOM, it was too complicated,
+but fortunally, this is not necessary anymore. 
+
+It's good to say that this lib isn't already dead, it's still used in Typescript, but in ano-
+ther concept and way.  
