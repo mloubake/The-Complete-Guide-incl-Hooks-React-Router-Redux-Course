@@ -1,0 +1,54 @@
+The approach of building the user interface with small blocks is called "Composition".
+
+In Composition we can create a component to serve as a "shell". These "shells" will wrap other compo-
+nents. They can be used to wrap components regardless the hierarquy of the components. We need to
+use the CHILDREN reserved word in the CARD component as props and use it in the return of that
+component.
+
+Example: Let's say that, we want create a Card component that can be used to wrap an itemlist 
+but it can also be used to englobe a container of the list of that item.
+
+
+//Card component
+function Card({children}) {
+    return (
+        <div>
+            {children}
+        </div>
+    )
+}
+
+Now we can use the card to wrap other components.
+
+//Item component
+function Item({something1, something2}) {
+    return(
+        <Card>
+            //What is declared inside this component will be the CHILDREN of the Card component.
+            <div>
+                {something1}
+            </div>
+            <div>
+                {something2}
+            </div>
+        </Card>
+    )
+}
+
+//itemlist
+function ItemList() {
+    return(
+        //This Card component is our list
+        <Card>
+            //Another Children
+            {
+                array.map(item => {
+                    return(
+                        <Item something={something1} something2={something2}/>
+                    )
+                })
+            }
+        </Card>
+    )
+}
+
