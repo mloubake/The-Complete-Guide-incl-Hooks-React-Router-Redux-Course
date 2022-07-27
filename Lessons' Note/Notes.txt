@@ -12,3 +12,30 @@ try (by "pointing" to the function).
 It's good to note that, if we call this way: <button onClick={function()} />, the function will
 trigger when the component be mounted. 
 
+#States
+In React, if we want to handle components that change their data, we can work with STATE.
+To work with states, we can use a REACT HOOK called "useState". This hook (technique) can be 
+changed whenever we wanted when doing an action in our UI.
+
+    - useState: Let's say that we have a item with wrong name, we can change it by setting a new
+    name through state. It's good to mention that we cannot change a variable directly in the 
+    "View" part of our component (It's the part where our HTML is written) and to do this we need
+    to change through the useState Hook, by setting a new value to the array that receive this hook.
+
+    Example:
+    function Component() {
+        let [name, setName] = useState('')
+
+        someFunction() {
+            setName('new name')
+        }
+
+        //View part
+        return (<div>{name}</div>)
+    }
+
+    This state belongs only to Component.
+
+    
+
+    
