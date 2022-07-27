@@ -12,6 +12,7 @@ try (by "pointing" to the function).
 It's good to note that, if we call this way: <button onClick={function()} />, the function will
 trigger when the component be mounted. 
 
+
 #States
 In React, if we want to handle components that change their data, we can work with STATE.
 To work with states, we can use a REACT HOOK called "useState". This hook (technique) can be 
@@ -34,7 +35,69 @@ changed whenever we wanted when doing an action in our UI.
         return (<div>{name}</div>)
     }
 
-    This state belongs only to Component.
+
+#Parent and Child Components.
+Parent Components and Child Componens are parts of our code that we can send pieces of data through
+the entire code base. If we want to use a data of a higher hierarquy to a lower one, we need to pass
+through the parent to child, but never to child to parent. If we want send a data through child
+to child, this will never happen, because we need to pass the data from child to parent and parent 
+to child, but this cannot be done, so we need rely on the Lift State Up method.
+
+
+#Lifting State Up
+Lift State Up is a method that allow us to work in a two-way communication, from parent to child and
+child to parent. 
+To achiev this, we need to create a funcion in our parent and pass this function to the child. In
+the child component, we need to use this function passed as props and set our data in this function.
+When we do this, the parent's function will work with the arguments that was passed in the child.
+After this, we can do whatever we wanted with this data, even pass to another child, by per example,
+using the useState hook, let's see how to do.
+
+    //Parent Component
+    function Parent() {
+        let [name, setName] = useState('')
+
+        function newNameHandler(newName) {
+            setName(newName)
+        }
+
+        return(
+            <div>
+                //Here we pass the function to our child
+                <ChildOne onNewName={newNameHandler} />
+                <ChildTwo name={name} />
+            </div>
+        )
+    }
+
+    //ChildOne Component
+    function ChildOne({onNewName}){
+        let [inputedName, setInputedName] = useState('')
+
+        function getInputedNameHandler(event) {
+            setInputedName(event.target.value)
+            
+            onNewName(inputedName)
+        }
+
+        retunr(
+            <div>
+                <input onChange={(event) => {getInputedNameHandler(event) }} />
+            </div>
+        )
+    }
+
+    This is the way that we can use the newName of ChildOne in the Parent Component.
+
+    OBS: This is a technique that we can use to achiev this, but it's not the only one and even
+    not the best, we can use Redux, to achiev this without falling in the Prop Drilling Hell.
+        * Prop Drilling Hell is a situation that, when we have a huge tree of Parent/Child 
+        components, we need to always pass a data to child to child to child and it's goes 
+        on and on forever, this is insuportable to maintain, and to scape this we need to rely
+        on other methods.
+
+
+
 
     
 
