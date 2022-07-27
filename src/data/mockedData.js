@@ -1,4 +1,4 @@
-let mockedData = [
+let mockedDatabase = [
   {
     id: "element0",
     title: "Towel",
@@ -29,4 +29,4 @@ let mockedData = [
   },
 ];
 
-export default mockedData;
+export default mockedDatabase;

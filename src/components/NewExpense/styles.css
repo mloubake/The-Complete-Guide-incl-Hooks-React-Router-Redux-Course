@@ -1,0 +1,6 @@
+.new-expense__container {
+  padding: 8px;
+
+  background-color: rgb(155, 106, 219);
+  border-radius: 8px;
+}
