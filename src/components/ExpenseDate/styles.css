@@ -1,0 +1,31 @@
+.container {
+  height: 80px;
+  padding-bottom: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid white;
+
+  background-color: #333;
+  border-radius: 8px;
+}
+
+h3 {
+  height: 30%;
+  margin: 0;
+  padding: 0 8px;
+
+  color: #ffffff80;
+  font-size: 0.8em;
+}
+
+h1 {
+  height: 50%;
+  margin: 0;
+
+  font-size: 0.1em;
+  color: white;
+}
