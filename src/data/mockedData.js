@@ -27,6 +27,13 @@ let mockedDatabase = [
     amount: 113.23,
     date: new Date(2022, 3, 5),
   },
+  {
+    id: "element4",
+    title: "Rubik Cube",
+    quantity: 1,
+    amount: 23.23,
+    date: new Date(2019, 3, 5),
+  },
 ];
 
 export default mockedDatabase;
