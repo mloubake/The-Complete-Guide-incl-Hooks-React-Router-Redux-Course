@@ -2,9 +2,23 @@ import React from "react";
 
 import "./styles.css";
 
-function ExpenseFilter({ onChangeYear }) {
+function ExpenseFilter({ selectedYear, onChangeYear }) {
   const dateArray = [
     2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030,
+  ];
+  const monthArray = [
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Set",
+    "Out",
+    "Nov",
+    "Dec",
   ];
 
   function handleSelectYear(event) {
@@ -17,6 +31,7 @@ function ExpenseFilter({ onChangeYear }) {
         <h2>Filter by Year</h2>
         <div className="dropdown">
           <select
+            value={selectedYear}
             onChange={(event) => {
               handleSelectYear(event);
             }}
@@ -32,22 +47,9 @@ function ExpenseFilter({ onChangeYear }) {
         </div>
       </div>
       <div className="expense-month-summary">
-        {[
-          "Jan",
-          "Fev",
-          "Mar",
-          "Abr",
-          "Mai",
-          "Jun",
-          "Jul",
-          "Ago",
-          "Set",
-          "Out",
-          "Nov",
-          "Dec",
-        ].map((month) => {
+        {monthArray.map((month) => {
           return (
-            <div className="month-bar__item">
+            <div key={month} className="month-bar__item">
               <progress className="bar" max="100" value="30"></progress>
               <h5 className="month">{month}</h5>
             </div>
