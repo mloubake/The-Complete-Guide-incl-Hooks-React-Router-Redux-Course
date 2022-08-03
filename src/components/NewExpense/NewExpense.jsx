@@ -3,7 +3,7 @@ import ExpenseForm from "../ExpenseForm/ExpenseForm";
 
 import "./styles.css";
 
-function NewExpense({ onAddNewExpense }) {
+function NewExpense({ onAddNewExpense, toggleAddExpenseBox }) {
   function handleSaveNewExpenseData(inputedExpenseData) {
     const expenseData = { ...inputedExpenseData, id: Math.random().toString() };
 
@@ -12,7 +12,10 @@ function NewExpense({ onAddNewExpense }) {
 
   return (
     <div className="new-expense__container">
-      <ExpenseForm onSaveNewExpenseData={handleSaveNewExpenseData} />
+      <ExpenseForm
+        onSaveNewExpenseData={handleSaveNewExpenseData}
+        toggleAddExpenseBox={toggleAddExpenseBox}
+      />
     </div>
   );
 }

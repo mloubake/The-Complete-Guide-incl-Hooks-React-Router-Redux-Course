@@ -3,7 +3,7 @@
 import { useState } from "react";
 import "./styles.css";
 
-function ExpenseForm({ onSaveNewExpenseData }) {
+function ExpenseForm({ onSaveNewExpenseData, toggleAddExpenseBox }) {
   let [newItem, setNewItem] = useState({
     inputedTitle: "",
     inputedQuantity: 1,
@@ -102,7 +102,6 @@ function ExpenseForm({ onSaveNewExpenseData }) {
             type="date"
             min="2019-01-01"
             max="2030-12-31"
-            required
             value={newItem.inputedDate}
             onChange={(event) => {
               handleDateChange(event);
@@ -114,7 +113,14 @@ function ExpenseForm({ onSaveNewExpenseData }) {
         <button id="add_new" type="submit">
           Add Expense
         </button>
-        <button id="reset_values">Reset</button>
+        <button
+          id="cancel_values"
+          onClick={() => {
+            toggleAddExpenseBox();
+          }}
+        >
+          Cancel
+        </button>
       </div>
     </form>
   );
