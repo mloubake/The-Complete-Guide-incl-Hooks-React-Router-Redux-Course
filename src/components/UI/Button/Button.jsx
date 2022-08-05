@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import './Button.css';
+import { Container } from "./styles";
 
-const Button = props => {
+const Button = (props) => {
   return (
-    <button type={props.type} className="button" onClick={props.onClick}>
+    <Container type={props.type} onClick={props.onClick}>
       {props.children}
-    </button>
+    </Container>
   );
 };
 

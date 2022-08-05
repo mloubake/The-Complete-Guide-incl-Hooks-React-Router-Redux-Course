@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import './CourseGoalItem.css';
+import { GoalItem } from "./styles";
 
-const CourseGoalItem = props => {
+const CourseGoalItem = (props) => {
   // const [deleteText, setDeleteText] = useState('');
 
   const deleteHandler = () => {
@@ -10,11 +10,7 @@ const CourseGoalItem = props => {
     props.onDelete(props.id);
   };
 
-  return (
-    <li className="goal-item" onClick={deleteHandler}>
-      {props.children}
-    </li>
-  );
+  return <GoalItem onClick={deleteHandler}>{props.children}</GoalItem>;
 };
 
 export default CourseGoalItem;
