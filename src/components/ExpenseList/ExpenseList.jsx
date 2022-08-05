@@ -8,6 +8,8 @@ import NewExpense from "../NewExpense/NewExpense";
 import ExpenseFilter from "../ExpenseFilter/ExpenseFilter";
 
 import "./styles.css";
+import Chart from "../Chart/Chart";
+import ExpensesChart from "../ExpensesChart/ExpensesChart";
 
 function ExpenseList() {
   let [mockedData, setMockedData] = useState(mockedDatabase);
@@ -58,6 +60,7 @@ function ExpenseList() {
             <p>No expenses found.</p>
           </div>
         )}
+        <ExpensesChart expensesList={handleFilterExpenses} />
         {handleFilterExpenses.length > 0 &&
           handleFilterExpenses
             .map((data) => {

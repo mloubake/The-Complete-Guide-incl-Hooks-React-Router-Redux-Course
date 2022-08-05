@@ -40,7 +40,7 @@ function ExpenseForm({ onSaveNewExpenseData, toggleAddExpenseBox }) {
 
     const expenseData = {
       title: newItem.inputedTitle,
-      quantity: newItem.inputedQuantity,
+      quantity: +newItem.inputedQuantity,
       amount: newItem.inputedAmount,
       date: new Date(newItem.inputedDate),
     };

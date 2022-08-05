@@ -6,20 +6,6 @@ function ExpenseFilter({ selectedYear, onChangeYear }) {
   const dateArray = [
     2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030,
   ];
-  const monthArray = [
-    "Jan",
-    "Fev",
-    "Mar",
-    "Abr",
-    "Mai",
-    "Jun",
-    "Jul",
-    "Ago",
-    "Set",
-    "Out",
-    "Nov",
-    "Dec",
-  ];
 
   function handleSelectYear(event) {
     onChangeYear(event.target.value);
@@ -45,16 +31,6 @@ function ExpenseFilter({ selectedYear, onChangeYear }) {
             })}
           </select>
         </div>
-      </div>
-      <div className="expense-month-summary">
-        {monthArray.map((month) => {
-          return (
-            <div key={month} className="month-bar__item">
-              <progress className="bar" max="100" value="30"></progress>
-              <h5 className="month">{month}</h5>
-            </div>
-          );
-        })}
       </div>
     </div>
   );
