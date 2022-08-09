@@ -14,10 +14,18 @@ function App() {
     });
   };
 
+  const handleRemoveUser = (userId) => {
+    setUsersList(
+      usersList.filter((user) => {
+        return user.id !== userId;
+      })
+    );
+  };
+
   return (
     <div className="App">
       <AddUser onChangeList={handleAddUser} />
-      <UsersList usersList={usersList} />
+      <UsersList usersList={usersList} onRemoveUser={handleRemoveUser} />
     </div>
   );
 }
