@@ -1,0 +1,12 @@
+.button {
+  width: fit-content;
+  padding: 8px;
+
+  background-color: rgb(83, 11, 112);
+  font-size: 1.2em;
+  border-radius: 6px;
+  border: none;
+
+  word-break: keep-all;
+  cursor: pointer;
+}
