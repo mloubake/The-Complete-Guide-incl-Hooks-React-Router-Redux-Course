@@ -1,0 +1,21 @@
+.button {
+  width: 8vw;
+  height: 6vh;
+
+  border-radius: 50px;
+  border: 0;
+
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: rgb(127, 27, 166);
+  color: white;
+  outline: 1px solid white;
+}
+
+.secondary {
+  background-color: rgb(235, 30, 200);
+  color: white;
+}
