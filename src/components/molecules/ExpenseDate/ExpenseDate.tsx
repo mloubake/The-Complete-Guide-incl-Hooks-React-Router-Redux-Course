@@ -2,7 +2,11 @@ import React from "react";
 
 import "./styles.css";
 
-function ExpenseDate({ date }) {
+interface IProps {
+  date: Date;
+}
+
+const ExpenseDate: React.FC<IProps> = ({ date }) => {
   const day = date.toLocaleString("pt-BR", { day: "2-digit" });
   const month = date.toLocaleString("pt-BR", { month: "short" });
   const year = date.getFullYear();
@@ -15,6 +19,6 @@ function ExpenseDate({ date }) {
       <h1>{day}</h1>
     </div>
   );
-}
+};
 
 export default ExpenseDate;

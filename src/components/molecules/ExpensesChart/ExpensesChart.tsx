@@ -1,11 +1,19 @@
 import React from "react";
-import Chart from "../Chart/Chart";
 
-// import "./styles.css";
+import Chart from "../../atoms/Chart/Chart";
 
-function ExpensesChart({ expensesList }) {
-  console.log(expensesList);
+interface IProps {
+  expensesList: Array<IExpense>;
+}
 
+interface IExpense {
+  date: Date;
+  title: string;
+  quantity: number;
+  price: number;
+}
+
+const ExpensesChart: React.FC<IProps> = ({ expensesList }) => {
   let chartDataPoints = [
     { month: "Jan", value: 0 },
     { month: "Fev", value: 0 },
@@ -24,10 +32,10 @@ function ExpensesChart({ expensesList }) {
   for (const expense of expensesList) {
     let expenseMonth = expense.date.getMonth();
 
-    chartDataPoints[expenseMonth].value += expense.amount * expense.quantity;
+    chartDataPoints[expenseMonth].value += expense.price * expense.quantity;
   }
 
   return <Chart dataPoints={chartDataPoints} />;
-}
+};
 
 export default ExpensesChart;

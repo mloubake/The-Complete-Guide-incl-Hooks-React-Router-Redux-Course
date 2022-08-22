@@ -2,14 +2,22 @@ import React, { useState } from "react";
 
 import "./styles.css";
 
-function ChartBar({ month, expensesInMonth, totalExpensesInYear }) {
-  let barFillHeight = 0;
+interface IProps {
+  month: string;
+  expensesInMonth: number;
+  totalExpensesInYear: number;
+}
+
+const ChartBar: React.FC<IProps> = ({
+  month,
+  expensesInMonth,
+  totalExpensesInYear,
+}) => {
+  let barFillHeight: number = 0;
 
   if (totalExpensesInYear > 0) {
     barFillHeight = Math.round((expensesInMonth / totalExpensesInYear) * 100);
   }
-
-  console.log(barFillHeight);
 
   return (
     <div key={month} className="chart-bar">
@@ -32,6 +40,6 @@ function ChartBar({ month, expensesInMonth, totalExpensesInYear }) {
       <h5 className="chart-bar__month">{month}</h5>
     </div>
   );
-}
+};
 
 export default ChartBar;

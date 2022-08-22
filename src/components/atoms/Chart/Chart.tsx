@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+
 import ChartBar from "../ChartBar/ChartBar";
 
 import "./styles.css";
 
-function Chart({ dataPoints }) {
+interface IProps {
+  dataPoints: IDataPoints[];
+}
+
+interface IDataPoints {
+  month: string;
+  value: number;
+}
+
+const Chart: React.FC<IProps> = ({ dataPoints }) => {
   let dataPointsValues = dataPoints.map((dataPoint) => dataPoint.value);
   let totalMaximum = Math.max(...dataPointsValues);
 
@@ -12,7 +22,6 @@ function Chart({ dataPoints }) {
       {dataPoints.map((dataPoint) => {
         return (
           <ChartBar
-            className={ChartBar}
             key={dataPoint.month}
             month={dataPoint.month}
             expensesInMonth={dataPoint.value}
@@ -22,6 +31,6 @@ function Chart({ dataPoints }) {
       })}
     </div>
   );
-}
+};
 
 export default Chart;

@@ -2,12 +2,17 @@ import React from "react";
 
 import "./styles.css";
 
-function ExpenseFilter({ selectedYear, onChangeYear }) {
+interface IProps {
+  selectedYear: any;
+  onChangeYear: (args: string) => void;
+}
+
+const ExpenseFilter: React.FC<IProps> = ({ selectedYear, onChangeYear }) => {
   const dateArray = [
     2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030,
   ];
 
-  function handleSelectYear(event) {
+  function handleSelectYear(event: React.ChangeEvent<HTMLSelectElement>) {
     onChangeYear(event.target.value);
   }
 
@@ -34,6 +39,6 @@ function ExpenseFilter({ selectedYear, onChangeYear }) {
       </div>
     </div>
   );
-}
+};
 
 export default ExpenseFilter;
