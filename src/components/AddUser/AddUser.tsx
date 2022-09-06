@@ -1,25 +1,35 @@
 import React from "react";
 import { useState } from "react";
+
 import Button from "../Button/Button";
 import ErrorModal from "../ErrorModal/ErrorModal";
 
 import classes from "./styles.module.css";
 
-function AddUser({ onChangeList }) {
-  let [username, setUsername] = useState("");
-  let [age, setAge] = useState("");
+interface IProps {
+  onChangeList: (username: string, age: string) => void;
+}
 
-  let [error, setError] = useState();
+interface IError {
+  title: string;
+  message: string;
+}
 
-  let handleGetUsername = (event) => {
-    setUsername(event.target.value);
+const AddUser: React.FC<IProps> = ({ onChangeList }) => {
+  let [username, setUsername] = useState<string>("");
+  let [age, setAge] = useState<string>("");
+
+  let [error, setError] = useState<IError | "">();
+
+  let handleGetUsername = (event: React.FormEvent<HTMLInputElement>) => {
+    setUsername(event.currentTarget.value);
   };
 
-  let handleGetAge = (event) => {
-    setAge(event.target.value);
+  let handleGetAge = (event: React.FormEvent<HTMLInputElement>) => {
+    setAge(event.currentTarget.value);
   };
 
-  const handleCreateUser = (event) => {
+  const handleCreateUser = () => {
     event.preventDefault();
 
     if (username.trim().length <= 0 || age.trim().length <= 0) {
@@ -73,11 +83,11 @@ function AddUser({ onChangeList }) {
           }}
         />
 
-        <Button type="submit" text={"Add User"} onClick={handleCreateUser} />
+        <Button type={"submit"} text={"Add User"} onClick={handleCreateUser} />
       </form>
       {error && <ErrorModal error={error} onCloseModal={handleError} />}
     </div>
   );
-}
+};
 
-export default AddUser;
+export { AddUser, IError };
