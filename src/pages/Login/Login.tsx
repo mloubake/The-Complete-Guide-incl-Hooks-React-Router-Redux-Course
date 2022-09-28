@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   SyntheticEvent,
+  useContext,
   useEffect,
   useReducer,
   useState,
@@ -10,6 +11,7 @@ import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 
 import classes from "./styles.module.css";
+import AuthenticateContext from "../../store/authenticate-context";
 
 const emailReducer = (state: State, action: Action) => {
   if (action.type === "USER_INPUT") {
@@ -35,10 +37,6 @@ const passwordReducer = (state: State, action: Action) => {
   return { value: "", isValid: false };
 };
 
-interface IProps {
-  onLogon: (email: string, password: string) => void;
-}
-
 type State = {
   value: string;
   isValid: boolean;
@@ -46,7 +44,7 @@ type State = {
 
 type Action = { type: string; value?: string };
 
-const Login: React.FC<IProps> = ({ onLogon }) => {
+const Login: React.FC = () => {
   let [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   let [emailState, dispatchEmail] = useReducer(emailReducer, {
@@ -58,6 +56,8 @@ const Login: React.FC<IProps> = ({ onLogon }) => {
     value: "",
     isValid: null,
   });
+
+  const authenticateContext = useContext(AuthenticateContext);
 
   useEffect(() => {
     console.log("EFFECT RUNNING");
@@ -103,7 +103,7 @@ const Login: React.FC<IProps> = ({ onLogon }) => {
   const submitHandler = (event: SyntheticEvent) => {
     event.preventDefault();
 
-    onLogon(emailState.value, passwordState.value);
+    authenticateContext.onLogin(emailState.value, passwordState.value);
   };
 
   return (

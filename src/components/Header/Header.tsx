@@ -1,29 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthenticateContext from "../../store/authenticate-context";
 import Button from "../Button/Button";
 
 import classes from "./styles.module.css";
 
-interface IProps {
-  isAuthenticated: boolean;
-  onLogout: () => void;
-}
+const Header: React.FC = () => {
+  const authenticateContext = useContext(AuthenticateContext);
 
-const Header: React.FC<IProps> = ({ isAuthenticated, onLogout }) => {
   return (
     <header className={classes.header}>
       <label>A Typical Page</label>
-      {isAuthenticated && (
+      {authenticateContext.isLoggedIn && (
         <div>
-          <Button text={"Users"} button_class={"primary"} onClick={null} />
-          <Button text={"Admin"} button_class={"primary"} onClick={null} />
+          <Button text={"Users"} button_class={"primary"} />
+          <Button text={"Admin"} button_class={"primary"} />
           <Button
             text={"Logout"}
             button_class={"secondary"}
-            onClick={onLogout}
+            onClick={authenticateContext.onLogout}
           />
         </div>
       )}
-      {!isAuthenticated && <></>}
+      {!authenticateContext.isLoggedIn && <></>}
     </header>
   );
 };
