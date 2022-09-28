@@ -24,11 +24,16 @@
 
 .header div {
   width: 80%;
+  height: 100%;
 
   display: flex;
   justify-content: end;
+  align-items: center;
 }
 
 .header div button {
+  width: 6vw;
+  height: 74%;
+
   margin-left: 2%;
 }

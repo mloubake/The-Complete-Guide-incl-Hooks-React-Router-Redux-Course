@@ -1,18 +1,21 @@
 .button {
-  width: 8vw;
-  height: 6vh;
-
   border-radius: 50px;
   border: 0;
 
   font-size: 1.2em;
   cursor: pointer;
+
+  opacity: 0.8;
+}
+
+.button:hover {
+  opacity: 1;
 }
 
 .primary {
   background-color: rgb(127, 27, 166);
   color: white;
-  outline: 1px solid white;
+  outline: 2px solid white;
 }
 
 .secondary {
