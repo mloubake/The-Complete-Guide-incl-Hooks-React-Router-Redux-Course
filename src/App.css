@@ -1,0 +1,59 @@
+section {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 40rem;
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+div {
+  margin-bottom: 16px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+span {
+  margin-bottom: 8px;
+
+  font-weight: bolder;
+  font-size: 1.2em;
+  text-align: start;
+}
+
+input {
+  height: 32px;
+}
+
+textarea {
+  height: 96px;
+}
+
+input,
+textarea {
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #bbb;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: #230052;
+  border: 1px solid #230052;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background-color: #460897;
+  border-color: #460897;
+}
