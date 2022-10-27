@@ -6,9 +6,11 @@ import classes from "./AvailableMeals.module.css";
 import MealItem from "./MealItem/MealItem";
 
 const AvailableMeals: React.FC = () => {
-  const [meals, setMeals] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [httpError, setHttpError] = useState();
+  const [meals, setMeals] = useState<
+    Array<{ id: string; name: string; description: string; price: number }>
+  >([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [httpError, setHttpError] = useState<string>();
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -59,15 +61,22 @@ const AvailableMeals: React.FC = () => {
     );
   }
 
-  const mealsList = meals.map((meal) => (
-    <MealItem
-      key={meal.id}
-      id={meal.id}
-      name={meal.name}
-      description={meal.description}
-      price={meal.price}
-    />
-  ));
+  const mealsList = meals.map(
+    (meal: {
+      id: string;
+      name: string;
+      description: string;
+      price: number;
+    }) => (
+      <MealItem
+        key={meal.id}
+        id={meal.id}
+        name={meal.name}
+        description={meal.description}
+        price={meal.price}
+      />
+    )
+  );
 
   return (
     <section className={classes.meals}>

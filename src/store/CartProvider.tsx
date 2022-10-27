@@ -7,7 +7,7 @@ interface IProps {
 }
 
 interface IReducer {
-  (prevState: any, action: any): any;
+  (prevState: State, action: any): any;
 }
 
 type State = {
@@ -97,6 +97,10 @@ const cartReducer = (state: State, action: Action) => {
     };
   }
 
+  if (action.type === "CLEAR") {
+    return defaultCartState;
+  }
+
   return defaultCartState;
 };
 
@@ -110,15 +114,20 @@ const CartProvider: React.FC<IProps> = ({ children }) => {
     dispatchCartAction({ type: "ADD_CART_ITEM", item: item });
   };
 
-  const removetemToCartHandler = (id: any) => {
+  const removeItemToCartHandler = (id: any) => {
     dispatchCartAction({ type: "REMOVE_CART_ITEM", id: id });
+  };
+
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
   };
 
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
-    removeItem: removetemToCartHandler,
+    removeItem: removeItemToCartHandler,
+    clearCart: clearCartHandler,
   };
 
   return (
