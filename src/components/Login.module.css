@@ -1,0 +1,31 @@
+.login {
+  width: 40rem;
+  margin: 5rem auto;
+  padding: 1rem;
+
+  text-align: center;
+
+  border-radius: 8px;
+  background-color: #f4f0fa;
+}
+
+.login input {
+  width: 24rem;
+  height: 1.8rem;
+
+  border-radius: 5px;
+  border: 1px solid #757575;
+}
+
+.login button {
+  margin: 2rem 0 0;
+}
+
+.login button:disabled {
+  background-color: #757575;
+  border-color: #757575;
+}
+
+.login p {
+  color: rgb(240, 44, 44);
+}
