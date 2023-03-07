@@ -1,0 +1,118 @@
+import { Suspense } from "react";
+import {
+  Await,
+  defer,
+  json,
+  redirect,
+  useRouteLoaderData,
+} from "react-router-dom";
+import EventItem from "../components/EventItem";
+import EventsList from "../components/EventsList";
+import { getAuthToken } from "../util/auth";
+
+interface IEventLoaderData {
+  event: {};
+  events: {};
+}
+
+const EventDetailPage = () => {
+  const { event, events }: IEventLoaderData = useRouteLoaderData(
+    "event-detail"
+  ) as IEventLoaderData;
+
+  return (
+    <>
+      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Await resolve={event}>
+          {(loadedEvent) => <EventItem event={loadedEvent} />}
+        </Await>
+      </Suspense>
+      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Await resolve={events}>
+          {(loadedEvents) => <EventsList events={loadedEvents} />}
+        </Await>
+      </Suspense>
+    </>
+  );
+};
+
+export default EventDetailPage;
+
+async function loadEvent(eventId: string) {
+  const response = await fetch("http://localhost:8080/events/" + eventId);
+
+  if (!response.ok) {
+    throw json(
+      { message: "Could not fetch details for selected event." },
+      { status: 500 }
+    );
+  } else {
+    const responseData = await response.json();
+
+    return responseData.event;
+  }
+}
+
+async function loadEvents() {
+  const response = await fetch("http://localhost:8080/events/");
+
+  if (!response.ok) {
+    // return { isError: true, message: 'Could not fetch events.' };
+    // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
+    //   status: 500,
+    // });
+    throw json({ message: "Could not fetch events" }, { status: 500 });
+  } else {
+    const responseData = await response.json();
+
+    return responseData.events;
+  }
+}
+
+interface ILoader {
+  request: Request;
+  params: {
+    eventId: string;
+  };
+}
+
+export async function loader({ request, params }: ILoader) {
+  const eventId = params.eventId;
+
+  return defer({
+    event: await loadEvent(eventId),
+    events: loadEvents(),
+  });
+}
+
+interface IAction {
+  request: Request;
+  params: { eventId: string };
+}
+
+export async function action({ request, params }: IAction) {
+  const eventId = params.eventId;
+
+  const token = getAuthToken();
+
+  const response = await fetch("http://localhost:8080/events/" + eventId, {
+    method: request.method,
+    headers: {
+      // prettier-ignore
+      "Authorization": "Bearer " + token,
+    },
+  });
+
+  if (!response.ok) {
+    throw json(
+      {
+        message: "Could not delete event.",
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+
+  return redirect("/events");
+}
