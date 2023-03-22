@@ -28,6 +28,10 @@ const MeetupDetails: React.FC<IProps> = ({ meetupData }) => {
   );
 };
 
+type meetupsCollection = {
+  [_id: string]: any;
+};
+
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
     "mongodb+srv://mloubake:vfkJaLRM7wHCniZA@cluster0.lqj3xzz.mongodb.net/meetups?retryWrites=true&w=majority"
@@ -37,8 +41,9 @@ export async function getStaticPaths() {
 
   const meetupsCollection = database.collection("meetups");
 
-  //@ts-nocheck
-  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+  const meetups = await meetupsCollection
+    .find({}, new Object({ _id: 1 }))
+    .toArray();
 
   client.close();
 
